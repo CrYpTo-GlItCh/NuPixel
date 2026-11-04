@@ -1,0 +1,261 @@
+:root {
+    --bg-dark: #07070c;
+    --cyan: #00ffff;
+    --magenta: #ff00ff;
+    --text-main: #f0f0f5;
+    --text-muted: #8a8a9e;
+    --card-bg: rgba(15, 15, 25, 0.7);
+    --border-color: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Futuristic Background Grids */
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -2;
+    transform: perspective(500px) rotateX(60deg) translateY(-30%) scale(2);
+    transform-origin: top center;
+    animation: gridMove 20s linear infinite;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 6px 100%;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+/* Layout Framework */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px 20px;
+    z-index: 2;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.logo {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
+}
+
+.logo .highlight {
+    color: var(--magenta);
+    text-shadow: 0 0 10px var(--magenta), 0 0 20px var(--magenta);
+}
+
+.tagline {
+    font-size: 1rem;
+    color: var(--text-muted);
+    letter-spacing: 8px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* Interactive Dashboard Gateways */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.05), transparent 70%);
+    transition: opacity 0.3s;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.discord-card .card-icon { color: #5865F2; }
+.cfx-card .card-icon { color: #ff3e3e; }
+.shop-card .card-icon { color: #ffca28; }
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: background 0.3s, box-shadow 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Physics */
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.discord-card:hover { border-color: #5865F2; box-shadow: 0 0 20px rgba(88, 101, 242, 0.2); }
+.discord-card:hover .btn { background: #5865F2; color: #fff; box-shadow: 0 0 15px #5865F2; }
+
+.cfx-card:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+.cfx-card:hover .btn { background: var(--cyan); color: #000; box-shadow: 0 0 15px var(--cyan); }
+
+.shop-card:hover { border-color: var(--magenta); box-shadow: 0 0 20px rgba(255, 0, 255, 0.2); }
+.shop-card:hover .btn { background: var(--magenta); color: #fff; box-shadow: 0 0 15px var(--magenta); }
+
+.card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+/* Donation Core Layout */
+.donation-section {
+    background: rgba(10, 10, 18, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 50px 40px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.donate-btn, .crypto-wallet {
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+.paypal { background: #003087; border-color: #0070ba; }
+.paypal:hover { background: #0044c1; box-shadow: 0 0 15px rgba(0, 112, 186, 0.4); }
+
+/* Crypto Buttons Styling */
+.crypto-wallet:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.crypto-wallet .tooltip {
+    position: absolute;
+    bottom: -35px;
+    background: #000;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    color: var(--text-muted);
+    border: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.crypto-wallet:hover .tooltip {
+    opacity: 1;
+}
+
+.crypto-wallet:active { transform: scale(0.98); }
