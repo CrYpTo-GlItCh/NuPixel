@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NuPixel | Next-Gen FiveM Roleplay Community</title>
-    <!-- CSS and icon dependencies omitted for brevity; see project files -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
     <div class="cyber-grid"></div>
@@ -12,44 +14,77 @@
         <header class="hero-section">
             <h1 class="logo">NU<span class="highlight">PIXEL</span></h1>
             <p class="tagline">WELCOME TO THE FUTURE OF ROLEPLAY</p>
+            <div class="n100-badge" style="display: inline-block; margin-top: 15px; padding: 6px 14px; background: rgba(0, 255, 157, 0.1); border: 1px solid rgba(0, 255, 157, 0.3); color: #00ff9d; font-family: monospace; font-size: 0.85rem; border-radius: 4px;">
+                <i class="fa-solid fa-microchip"></i> OPTIMIZED FOR STEAMDECK & PLAYABLE ON INTEL N100 HARDWARE
+            </div>
         </header>
 
         <section class="grid-layout">
-            <!-- Discord, Server Connection, and Shop cards -->
+            <a href="https://discord.gg" target="_blank" class="card discord-card">
+                <i class="fab fa-discord card-icon"></i>
+                <h3>Join Community</h3>
+                <p>Connect with players, view server updates, and submit whitelist applications.</p>
+                <span class="btn">Launch Discord</span>
+            </a>
+
             <a href="cfx://connect/3yagxxz" class="card cfx-card">
+                <i class="fa-solid fa-server card-icon"></i>
                 <h3>Play NuPixel</h3>
+                <p>Directly initialize your CFX client and join NuPixel.</p>
                 <div class="player-count-badge">
-                    <span id="player-status">Syncing API...</span>
+                    <span class="pulse-dot"></span>
+                    <span id="player-status">FETCHING METRICS...</span>
                 </div>
+                <span class="btn">Connect Server</span>
+            </a>
+
+            <a href="https://YOUR_TEBEX_STORE.tebex.io" target="_blank" class="card shop-card">
+                <i class="fa-solid fa-basket-shopping card-icon"></i>
+                <h3>NuPixel Shop</h3>
+                <p>MERCH & BENEFITS [COMING SOON]</p>
+                <span class="btn">Browse Shop</span>
             </a>
         </section>
 
-        <!-- Donation and crypto wallet sections omitted for brevity -->
+        <section class="donation-section" style="margin-bottom: 60px; padding: 40px 20px;">
+            <h2 class="section-title">ROG Ally Z1 Performance</h2>
+            <p class="section-subtitle">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
+            <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://youtube.com" title="NoPixel vs NuPixel ROG Ally Z1 Comparison" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="donation-section">
+            <h2 class="section-title">Support Project Evolution</h2>
+            <p class="section-subtitle">Fuel our hardware and game servers.</p>
+            <div class="donation-grid">
+                <a href="https://paypal.me" target="_blank" class="donate-btn paypal"><i class="fab fa-paypal"></i> PayPal</a>
+                <div class="crypto-wallet" onclick="copyAddress('3JNvWL6hSaF3kMVKydfRhfrt82wXDDcaBV', 'Bitcoin')"><i class="fab fa-bitcoin"></i> Bitcoin (BTC)</div>
+                <div class="crypto-wallet" onclick="copyAddress('0x314523ca487b9BDf158c2072701bdCfA89AbB0e2', 'Ethereum')"><i class="fab fa-ethereum"></i> Ethereum (ETH)</div>
+                <div class="crypto-wallet" onclick="copyAddress('0x4cc71b7c65eF753B8f497EBFb87eae40739a29F3', 'USDC')"><i class="fa-solid fa-dollar-sign"></i> USDC</div>
+                <div class="crypto-wallet" onclick="copyAddress('DDVRVa3BcTAb2UC7mEEXmT3wJmViKGMsP7', 'Dogecoin')"><i class="fa-solid fa-paw"></i> Dogecoin (DOGE)</div>
+                <div class="crypto-wallet" onclick="copyAddress('rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg', 'XRP')"><i class="fa-solid fa-bolt"></i> Ripple (XRP)</div>
+            </div>
+        </section>
     </div>
 
     <script>
+        function copyAddress(address, token) {
+            navigator.clipboard.writeText(address).then(() => alert(token + " copied!"));
+        }
+
         async function updateFiveMPlayers() {
-            const serverId = '3yagxxz';
             const statusElement = document.getElementById('player-status');
             try {
-                const response = await fetch(`https://fivem.net{serverId}`, {
-                    headers: { 'User-Agent': 'NuPixel-Web-Portal' }
-                });
-                if (!response.ok) throw new Error('Cfx directory network exception');
+                const response = await fetch('https://fivem.net');
                 const payload = await response.json();
-                if (payload && payload.data) {
-                    const activeCount = payload.data.clients || 0;
-                    const maxCount = payload.data.vars.sv_maxclients || 32;
-                    statusElement.innerText = `ONLINE: ${activeCount} / ${maxCount}`;
-                } else {
-                    statusElement.innerText = "OFFLINE";
-                }
-            } catch (err) {
-                statusElement.innerText = "SERVER ONLINE";
+                statusElement.innerText = payload?.Data ? `ONLINE: ${payload.Data.clients ?? 0} / ${payload.Data.vars.sv_maxclients ?? 32}` : "SERVER ONLINE";
+            } catch {
+                statusElement.innerText = "SERVER ACTIVE";
             }
         }
         updateFiveMPlayers();
-        setInterval(updateFiveMPlayers, 60000);
+        setInterval(updateFiveMPlayers, 45000);
     </script>
 </body>
 </html>
