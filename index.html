@@ -24,7 +24,7 @@
         <section style="margin-bottom: 30px;">
             <div style="background: var(--card-bg); border: 1px solid rgba(0, 255, 255, 0.2); border-radius: 12px; padding: 20px; text-align: center; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; gap: 15px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);">
                 <span class="pulse-dot" style="width: 12px; height: 12px; background-color: var(--cyan); border-radius: 50%; display: inline-block; box-shadow: 0 0 10px var(--cyan); animation: live-pulse 1.5s infinite ease-in-out;"></span>
-                <span id="player-status" style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: var(--cyan); letter-spacing: 2px; text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);">FETCHING LIVE METRICS...</span>
+                <span id="player-status" style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: var(--cyan); letter-spacing: 2px; text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);">NUPIXEL INSTANCE STATUS // ONLINE</span>
             </div>
         </section>
 
@@ -37,14 +37,13 @@
                 <span class="btn">Launch Discord</span>
             </a>
 
-            <!-- FiveM Direct Connection Gateway (Blue style overridden with Custom Cyber-Green Style) -->
+            <!-- FiveM Direct Connection Gateway -->
             <div class="card cfx-card" style="border-color: rgba(0, 255, 157, 0.1);">
                 <i class="fa-solid fa-server card-icon" style="color: #00ff9d;"></i>
                 <h3>Play NuPixel</h3>
                 <p>Directly initialize your CFX client and join NuPixel.</p>
                 
                 <style>
-                    /* Custom isolated CSS override to explicitly format the button text green */
                     .cfx-card .btn-green {
                         background: rgba(0, 255, 157, 0.05);
                         border: 1px solid rgba(0, 255, 157, 0.2);
@@ -128,20 +127,21 @@
         async function updateFiveMPlayers() {
             const statusElement = document.getElementById('player-status');
             try {
-                // Polls your custom reverse proxy proxy bypass directly
-                const response = await fetch('https://nupixel.xyz');
+                // Polls your custom reverse proxy configuration directly
+                const response = await fetch('https://play.nupixel.xyz');
                 if (!response.ok) throw new Error('Proxy down');
                 
                 const playersArray = await response.json();
                 
+                // Ensures a distinct tracking structure is always shown clearly
                 if (Array.isArray(playersArray)) {
-                    statusElement.innerText = `NUXPIXEL INSTANCE STATUS // ONLINE: ${playersArray.length} CLANSMEN`;
+                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${playersArray.length} CLANSMEN`;
                 } else {
-                    statusElement.innerText = "NUXPIXEL INSTANCE STATUS // LIVE";
+                    statusElement.innerText = "NUPIXEL INSTANCE STATUS // ONLINE";
                 }
             } catch (err) {
                 console.error("Direct reverse proxy fetch exception:", err);
-                statusElement.innerText = "NUXPIXEL INSTANCE STATUS // ONLINE";
+                statusElement.innerText = "NUPIXEL INSTANCE STATUS // ONLINE";
             }
         }
         
