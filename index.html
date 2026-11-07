@@ -87,7 +87,7 @@
             const statusElement = document.getElementById('player-status');
             try {
                 // Polls your clean custom proxy block endpoint directly
-                const response = await fetch('https://nupixel.xyz');
+                const response = await fetch('https://play.nupixel.xyz');
                 if (!response.ok) throw new Error('Nginx proxy returned invalid status');
                 
                 const playersArray = await response.json();
