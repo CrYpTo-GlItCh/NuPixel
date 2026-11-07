@@ -214,7 +214,7 @@
             }
         }
 
-        <!-- YouTube IFrame API for Volume Control & Autoplay -->
+        <!-- YouTube IFrame API for Volume Control, Autoplay, & Looping -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         var ytPlayer;
@@ -224,15 +224,22 @@
                     'onReady': function(event) {
                         event.target.setVolume(50); // Sets volume to half
                         event.target.playVideo();   // Triggers autoplay
+                    },
+                    'onStateChange': function(event) {
+                        // When the video ends (State 0), tell it to play again
+                        if (event.data === YT.PlayerState.ENDED) {
+                            event.target.playVideo();
+                        }
                     }
                 }
             });
         }
     </script>
-        
-        // Initialize loops
-        updateFiveMPlayers();
-        setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
-    </script>
-</body>
+
+        <script>
+            // Initialize loops
+            updateFiveMPlayers();
+            setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
+        </script>
+    </body>
 </html>
