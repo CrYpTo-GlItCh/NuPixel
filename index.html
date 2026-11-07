@@ -109,44 +109,96 @@
             <h2 class="section-title">Support Project Evolution</h2>
             <p class="section-subtitle">Fuel our hardware and game servers.</p>
             
+            <!-- Custom Styles for Crypto Highlights -->
+            <style>
+                .crypto-wallet { padding: 15px; text-align: center; }
+                .crypto-wallet i { font-size: 1.8rem; margin-bottom: 8px; display: block; transition: 0.3s ease; }
+                .network-text { font-size: 0.75rem; color: #888; display: block; margin-top: 5px; font-weight: normal; }
+                
+                /* Bitcoin (BTC) - Orange */
+                .crypto-wallet.btc { border-bottom: 3px solid #F7931A; }
+                .crypto-wallet.btc i, .crypto-wallet.btc strong { color: #F7931A; }
+                .crypto-wallet.btc:hover { border-color: #F7931A; box-shadow: 0 0 15px rgba(247, 147, 26, 0.3); }
+
+                /* Ethereum (ETH) - Purple/Blue */
+                .crypto-wallet.eth { border-bottom: 3px solid #627EEA; }
+                .crypto-wallet.eth i, .crypto-wallet.eth strong { color: #627EEA; }
+                .crypto-wallet.eth:hover { border-color: #627EEA; box-shadow: 0 0 15px rgba(98, 126, 234, 0.3); }
+
+                /* USD Coin (USDC) - Blue */
+                .crypto-wallet.usdc { border-bottom: 3px solid #2775CA; }
+                .crypto-wallet.usdc i, .crypto-wallet.usdc strong { color: #2775CA; }
+                .crypto-wallet.usdc:hover { border-color: #2775CA; box-shadow: 0 0 15px rgba(39, 117, 202, 0.3); }
+
+                /* Dogecoin (DOGE) - Gold */
+                .crypto-wallet.doge { border-bottom: 3px solid #F3C623; }
+                .crypto-wallet.doge i, .crypto-wallet.doge strong { color: #F3C623; }
+                .crypto-wallet.doge:hover { border-color: #F3C623; box-shadow: 0 0 15px rgba(243, 198, 35, 0.3); }
+
+                /* Ripple (XRP) - Cyan/Blue */
+                .crypto-wallet.xrp { border-bottom: 3px solid #00AAE4; cursor: default; padding-bottom: 15px; }
+                .crypto-wallet.xrp i, .crypto-wallet.xrp strong { color: #00AAE4; }
+                .crypto-wallet.xrp:hover { border-color: #00AAE4; box-shadow: 0 0 15px rgba(0, 170, 228, 0.3); }
+                .crypto-wallet.xrp:hover i { text-shadow: 0 0 10px rgba(0, 170, 228, 0.5); }
+
+                /* XRP Sub-Buttons */
+                .xrp-btn-container { display: flex; gap: 8px; margin-top: 12px; width: 100%; justify-content: center; }
+                .xrp-btn {
+                    flex: 1; background: rgba(0, 170, 228, 0.1); border: 1px solid #00AAE4;
+                    color: #00AAE4; border-radius: 4px; padding: 6px 0; cursor: pointer;
+                    font-size: 0.8rem; font-family: inherit; font-weight: bold; transition: all 0.2s ease;
+                }
+                .xrp-btn:hover { background: #00AAE4; color: #000; box-shadow: 0 0 10px rgba(0, 170, 228, 0.8); }
+            </style>
+
             <div class="donation-grid">
-                <a href="https://paypal.me/iQuantum" target="_blank" class="donate-btn paypal"><i class="fab fa-paypal"></i> PayPal</a>
+                <!-- PayPal -->
+                <a href="https://paypal.me/iQuantum" target="_blank" class="donate-btn paypal">
+                    <i class="fab fa-paypal"></i> PayPal
+                </a>
                 
-                <div class="crypto-wallet" onclick="copyAddress('3JNvWL6hSaF3kMVKydfRhfrt82wXDDcaBV', 'Bitcoin')">
-                    <i class="fab fa-bitcoin"></i> Bitcoin (BTC)
-                    (STANDARD NETWORK; NOT LIGHTNING)
+                <!-- Bitcoin -->
+                <div class="crypto-wallet btc" onclick="copyAddress('3JNvWL6hSaF3kMVKydfRhfrt82wXDDcaBV', 'Bitcoin')">
+                    <i class="fab fa-bitcoin"></i>
+                    <strong>Bitcoin (BTC)</strong>
+                    <span class="network-text">(STANDARD NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
                 
-                <div class="crypto-wallet" onclick="copyAddress('0x314523ca487b9BDf158c2072701bdCfA89AbB0e2', 'Ethereum')">
-                    <i class="fab fa-ethereum"></i> Ethereum (ETH)
-                    (ETH NETWORK)
+                <!-- Ethereum -->
+                <div class="crypto-wallet eth" onclick="copyAddress('0x314523ca487b9BDf158c2072701bdCfA89AbB0e2', 'Ethereum')">
+                    <i class="fab fa-ethereum"></i>
+                    <strong>Ethereum (ETH)</strong>
+                    <span class="network-text">(ETH NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
                 
-                <div class="crypto-wallet" onclick="copyAddress('0x4cc71b7c65eF753B8f497EBFb87eae40739a29F3', 'USDC')">
-                    <i class="fa-solid fa-dollar-sign"></i> USD Coin (USDC)
-                    (ETH NETWORK)
+                <!-- USDC -->
+                <div class="crypto-wallet usdc" onclick="copyAddress('0x4cc71b7c65eF753B8f497EBFb87eae40739a29F3', 'USDC')">
+                    <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                    <strong>USD Coin (USDC)</strong>
+                    <span class="network-text">(ETH NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
 
-                <div class="crypto-wallet" onclick="copyAddress('DDVRVa3BcTAb2UC7mEEXmT3wJmViKGMsP7', 'Dogecoin')">
-                    <i class="fa-solid fa-paw"></i> Dogecoin (DOGE)
-                    (DOGECOIN NETWORK)
+                <!-- Dogecoin -->
+                <div class="crypto-wallet doge" onclick="copyAddress('DDVRVa3BcTAb2UC7mEEXmT3wJmViKGMsP7', 'Dogecoin')">
+                    <i class="fa-solid fa-dog"></i>
+                    <strong>Dogecoin (DOGE)</strong>
+                    <span class="network-text">(DOGECOIN NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
 
-                <div class="crypto-wallet" onclick="copyAddress('rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg', 'XRP Address')">
-                    <i class="fa-solid fa-bolt"></i> Ripple (XRP)
-                    (RIPPLE NETWORK)
-                    <span class="tooltip">Click to Copy Address</span>
-                </div>
-
-                <!-- New Dedicated Button for the XRP Memo -->
-                <div class="crypto-wallet" onclick="copyAddress('4218899529', 'XRP Memo')">
-                    <i class="fa-solid fa-hashtag"></i> XRP Memo
-                    (REQUIRED FOR RIPPLE NETWORK)
-                    <span class="tooltip">Click to Copy Memo</span>
+                <!-- Ripple (XRP) - Combined Footprint -->
+                <div class="crypto-wallet xrp">
+                    <i class="fa-solid fa-x"></i> <!-- Uses 'X' to closer resemble the modern XRP logo -->
+                    <strong>Ripple (XRP)</strong>
+                    <span class="network-text">(RIPPLE NETWORK)</span>
+                    
+                    <div class="xrp-btn-container">
+                        <button class="xrp-btn" onclick="copyAddress('rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg', 'XRP Address')">Address</button>
+                        <button class="xrp-btn" onclick="copyAddress('4218899529', 'XRP Memo')">Memo</button>
+                    </div>
                 </div>
             </div>
         </section>
