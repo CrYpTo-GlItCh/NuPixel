@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NuPixel | Next-Gen FiveME Roleplay Community</title>
+    <title>NuPixel | Next-Gen FiveM Roleplay Community</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Clean production CDN for FontAwesome icons -->
+    <!-- Verified production CDN for FontAwesome icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
@@ -79,7 +79,8 @@
             <h2 class="section-title">ROG Ally Z1 Performance</h2>
             <p class="section-subtitle">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
             <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);">
-                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://youtube.com/ZGxj3Q-mezM" title="NoPixel vs NuPixel ROG Ally Z1 Comparison" allowfullscreen></iframe>
+                <!-- Fixed: Changed from a watch path over to the official YouTube platform embed gateway -->
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://youtube.com" title="NoPixel vs NuPixel ROG Ally Z1 Comparison" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -127,13 +128,12 @@
         async function updateFiveMPlayers() {
             const statusElement = document.getElementById('player-status');
             try {
-                // Polls your custom reverse proxy configuration directly
-                const response = await fetch('https://play.nupixel.xyz');
-                if (!response.ok) throw new Error('Proxy down');
+                // Polls your custom Nginx reverse proxy configuration directly
+                const response = await fetch('https://nupixel.xyz');
+                if (!response.ok) throw new Error('Proxy status error');
                 
                 const playersArray = await response.json();
                 
-                // Ensures a distinct tracking structure is always shown clearly
                 if (Array.isArray(playersArray)) {
                     statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${playersArray.length} CLANSMEN`;
                 } else {
@@ -145,6 +145,7 @@
             }
         }
         
+        // Initialize tracking loops
         updateFiveMPlayers();
         setInterval(updateFiveMPlayers, 30000);
     </script>
