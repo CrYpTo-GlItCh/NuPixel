@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <body>
+    <!-- NuPixel Full-Motion Visual Background -->
+    <div class="video-background">
+        <!-- Fallback image loads immediately, or if video fails/is disabled on mobile -->
+        <img src="fallback-bg.jpg" alt="NuPixel City" class="fallback-bg">
+        
+        <!-- Autoplaying, muted, looping background video -->
+        <video autoplay loop muted playsinline id="bg-video">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Dark gradient overlay to ensure text remains readable -->
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Existing cyber-grid -->
     <div class="cyber-grid"></div>
     
     <div class="container">
