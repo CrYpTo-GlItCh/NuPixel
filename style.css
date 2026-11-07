@@ -22,6 +22,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* 0. Full Motion Video Background */
 .video-background {
     position: fixed;
@@ -29,7 +30,7 @@ body {
     left: 0; 
     width: 100vw; 
     height: 100vh;
-    z-index: -3; /* Sits at the very back */
+    z-index: -3;
     overflow: hidden;
     background-color: #050505; 
 }
@@ -44,25 +45,23 @@ body {
     width: auto;
     height: auto;
     transform: translateX(-50%) translateY(-50%);
-    object-fit: cover; /* Ensures it fills the screen without stretching */
+    object-fit: cover;
     pointer-events: none;
 }
 
 .video-background .fallback-bg {
-    z-index: -4; /* Sits right behind the video */
+    z-index: -4;
 }
 
-/* Gradient overlay to ensure text readability and maintain the cyberpunk vibe */
 .video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Creates a dark, slightly blue-tinted cinematic vignette */
     background: linear-gradient(135deg, rgba(5, 5, 5, 0.85) 0%, rgba(10, 15, 20, 0.7) 100%), 
                 radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
-    z-index: -2; /* Over the video, but under the cyber-grid */
+    z-index: -2;
 }
 
 /* 1. Flashy Animated Cyber Grid Background */
@@ -314,6 +313,35 @@ body {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
+}
+
+/* Unmute Overlay */
+.unmute-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+.unmute-overlay:hover {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--cyan);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+.unmute-overlay i {
+    margin-right: 12px;
 }
 
 /* 7. Rules Section */
