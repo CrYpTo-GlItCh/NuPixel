@@ -5,6 +5,7 @@
     --cyan: #00f0ff;
     --neon-green: #00ff9d;
     --neon-purple: #bd00ff;
+    --pink: #ff00ea;
     --text-main: #e0e0e0;
     --border-glow: rgba(0, 240, 255, 0.3);
     --border-color: rgba(255, 255, 255, 0.1);
@@ -109,24 +110,24 @@ body {
     padding: 60px 20px 40px;
 }
 
+/* Updated Logo Styling to Match Branding */
 .logo {
-    font-size: 4rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
     margin: 0 0 10px 0;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    color: transparent; /* Makes the text hollow */
     animation: textFlicker 3s infinite alternate;
 }
 
 .highlight-cyan { 
-    color: var(--cyan); 
-    text-shadow: 0 0 15px var(--cyan); 
+    -webkit-text-stroke: 2px var(--cyan); /* Hollow neon stroke */
+    text-shadow: 0 0 15px var(--cyan), 0 0 30px rgba(0, 240, 255, 0.4); 
 }
 
 .highlight-pink { 
-    color: #ff00ff; /* Neon Pink */
-    text-shadow: 0 0 15px #ff00ff; 
+    -webkit-text-stroke: 2px var(--pink); /* Hollow neon stroke */
+    text-shadow: 0 0 15px var(--pink), 0 0 30px rgba(255, 0, 234, 0.4); 
 }
 
 @keyframes textFlicker {
@@ -446,6 +447,6 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .logo { font-size: 3rem; }
+    .logo { font-size: 3.5rem; }
     .section-title { font-size: 1.5rem; }
 }
