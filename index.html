@@ -173,9 +173,23 @@
             });
         }
 
+        // Initialize locals count hovering around 16,000 with a slight random offset
+        let currentLocals = 16000 + Math.floor(Math.random() * 200) - 100;
+
         async function updateFiveMPlayers() {
             const statusElement = document.getElementById('player-status');
-            const defaultText = "NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens in the City";
+            
+            // Shift the locals count up or down by a random number between -7 and +7
+            const change = Math.floor(Math.random() * 15) - 7;
+            currentLocals += change;
+            
+            // Enforce the hard limits
+            if (currentLocals < 11777) currentLocals = 11777;
+            if (currentLocals > 17777) currentLocals = 17777;
+
+            // Format the number with commas for better readability (e.g., 16,005)
+            const localsFormatted = currentLocals.toLocaleString();
+            const defaultText = `NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens // ${localsFormatted} Locals in the City`;
             
             try {
                 // Official CFX API Polling
@@ -185,7 +199,7 @@
                 const cfxData = await cfxResponse.json();
                 if (cfxData && cfxData.Data && typeof cfxData.Data.clients !== 'undefined') {
                     const count = cfxData.Data.clients || 0;
-                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} Citizens in the City`;
+                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} Citizens // ${localsFormatted} Locals in the City`;
                 } else {
                     statusElement.innerText = defaultText;
                 }
