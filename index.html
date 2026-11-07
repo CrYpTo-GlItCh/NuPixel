@@ -109,12 +109,17 @@
             <h2 class="section-title">Support Project Evolution</h2>
             <p class="section-subtitle">Fuel our hardware and game servers.</p>
             
-            <!-- Custom Styles for Crypto Highlights -->
+            <!-- Custom Styles for Crypto & Fiat Highlights -->
             <style>
-                .crypto-wallet { padding: 15px; text-align: center; }
+                .crypto-wallet { padding: 15px; text-align: center; position: relative; }
                 .crypto-wallet i { font-size: 1.8rem; margin-bottom: 8px; display: block; transition: 0.3s ease; }
-                .network-text { font-size: 0.75rem; color: #888; display: block; margin-top: 5px; font-weight: normal; }
+                .network-text { font-size: 0.75rem; color: #888; display: block; margin-top: 5px; font-weight: normal; line-height: 1.4; }
                 
+                /* PayPal - Blue */
+                .crypto-wallet.paypal-card { border-bottom: 3px solid #0079C1; text-decoration: none; display: block; color: inherit; }
+                .crypto-wallet.paypal-card i, .crypto-wallet.paypal-card strong { color: #0079C1; }
+                .crypto-wallet.paypal-card:hover { border-color: #0079C1; box-shadow: 0 0 15px rgba(0, 121, 193, 0.3); }
+
                 /* Bitcoin (BTC) - Orange */
                 .crypto-wallet.btc { border-bottom: 3px solid #F7931A; }
                 .crypto-wallet.btc i, .crypto-wallet.btc strong { color: #F7931A; }
@@ -149,12 +154,18 @@
                     font-size: 0.8rem; font-family: inherit; font-weight: bold; transition: all 0.2s ease;
                 }
                 .xrp-btn:hover { background: #00AAE4; color: #000; box-shadow: 0 0 10px rgba(0, 170, 228, 0.8); }
+                
+                /* Memo Warning text */
+                .warning-text { color: #ff4444; font-weight: bold; font-size: 0.75rem; display: block; margin-top: 2px; }
             </style>
 
             <div class="donation-grid">
                 <!-- PayPal -->
-                <a href="https://paypal.me/iQuantum" target="_blank" class="donate-btn paypal">
-                    <i class="fab fa-paypal"></i> PayPal
+                <a href="https://paypal.me/iQuantum" target="_blank" class="crypto-wallet paypal-card">
+                    <i class="fab fa-paypal"></i>
+                    <strong>PayPal</strong>
+                    <span class="network-text">(FIAT / USD)</span>
+                    <span class="tooltip">Click to open PayPal</span>
                 </a>
                 
                 <!-- Bitcoin -->
@@ -194,6 +205,7 @@
                     <i class="fa-solid fa-x"></i> <!-- Uses 'X' to closer resemble the modern XRP logo -->
                     <strong>Ripple (XRP)</strong>
                     <span class="network-text">(RIPPLE NETWORK)</span>
+                    <span class="warning-text">MEMO REQUIRED</span>
                     
                     <div class="xrp-btn-container">
                         <button class="xrp-btn" onclick="copyAddress('rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg', 'XRP Address')">Address</button>
