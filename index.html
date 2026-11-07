@@ -73,18 +73,25 @@
             navigator.clipboard.writeText(address).then(() => alert(token + " copied!"));
         }
 
-        async function updateFiveMPlayers() {
-            const statusElement = document.getElementById('player-status');
-            try {
-                const response = await fetch('https://fivem.net');
-                const payload = await response.json();
-                statusElement.innerText = payload?.Data ? `ONLINE: ${payload.Data.clients ?? 0} / ${payload.Data.vars.sv_maxclients ?? 32}` : "SERVER ONLINE";
-            } catch {
-                statusElement.innerText = "SERVER ACTIVE";
-            }
-        }
-        updateFiveMPlayers();
-        setInterval(updateFiveMPlayers, 45000);
+async function updateFiveMPlayers() {
+    const statusElement = document.getElementById('player-status');
+    try {
+        // Now queries your live instance directly through your clean proxy link bypass
+        const response = await fetch('https://play.nupixel.xyz');
+        if (!response.ok) throw new Error('Proxy down');
+        
+        const playersArray = await response.json();
+        // Since players.json returns a raw array of online clients, we read its length
+        const currentPlayers = playersArray.length || 0;
+        
+        statusElement.innerText = `ONLINE: ${currentPlayers}`;
+    } catch (err) {
+        console.error("Direct poll failure:", err);
+        statusElement.innerText = "SERVER ONLINE";
+    }
+}
+updateFiveMPlayers();
+setInterval(updateFiveMPlayers, 30000); // Direct querying can safely update faster (every 30s)
     </script>
 </body>
 </html>
