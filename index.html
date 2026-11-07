@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NuPixel | Next-Gen FiveME Roleplay Community</title>
+    <title>NuPixel | Next-Gen FiveM Roleplay Community</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
     <link rel="stylesheet" href="style.css">
     <!-- Verified production CDN for FontAwesome icons -->
@@ -16,19 +16,20 @@
         <header class="hero-section">
             <h1 class="logo">NU<span class="highlight">PIXEL</span></h1>
             <p class="tagline">WELCOME TO THE FUTURE OF ROLEPLAY</p>
-            <div class="n100-badge" style="display: inline-block; margin-top: 15px; padding: 6px 14px; background: rgba(0, 255, 157, 0.1); border: 1px solid rgba(0, 255, 157, 0.3); color: #00ff9d; font-family: monospace; font-size: 0.85rem; border-radius: 4px;">
+            <div class="n100-badge">
                 <i class="fa-solid fa-microchip"></i> OPTIMIZED FOR STEAMDECK & PLAYABLE ON INTEL N100 HARDWARE
             </div>
         </header>
 
         <!-- Dedicated Live Server Player Status Block Frame -->
-        <section style="margin-bottom: 30px;">
-            <div style="background: var(--card-bg); border: 1px solid rgba(0, 255, 255, 0.2); border-radius: 12px; padding: 20px; text-align: center; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; gap: 15px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);">
-                <span class="pulse-dot" style="width: 12px; height: 12px; background-color: var(--cyan); border-radius: 50%; display: inline-block; box-shadow: 0 0 10px var(--cyan); animation: live-pulse 1.5s infinite ease-in-out;"></span>
-                <span id="player-status" style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: var(--cyan); letter-spacing: 2px; text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);">NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens in the City</span>
+        <section class="status-section">
+            <div class="status-card">
+                <span class="pulse-dot"></span>
+                <span id="player-status" class="status-text">NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens in the City</span>
             </div>
         </section>
 
+        <!-- Main Gateways -->
         <section class="grid-layout">
             <!-- Discord Gateway -->
             <a href="https://discord.gg/9f3KgEzVAg" target="_blank" class="card discord-card">
@@ -39,29 +40,10 @@
             </a>
 
             <!-- FiveM Direct Connection Gateway -->
-            <div class="card cfx-card" style="border-color: rgba(0, 255, 157, 0.1);">
-                <i class="fa-solid fa-server card-icon" style="color: #00ff9d;"></i>
+            <div class="card cfx-card">
+                <i class="fa-solid fa-server card-icon"></i>
                 <h3>Play NuPixel</h3>
                 <p>Directly initialize your CFX client and join NuPixel.</p>
-                <style>
-                    .cfx-card .btn-green {
-                        background: rgba(0, 255, 157, 0.05);
-                        border: 1px solid rgba(0, 255, 157, 0.2);
-                        color: #00ff9d !important;
-                        text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
-                        box-shadow: none;
-                    }
-                    .cfx-card:hover {
-                        border-color: #00ff9d !important;
-                        box-shadow: 0 0 20px rgba(0, 255, 157, 0.2) !important;
-                    }
-                    .cfx-card:hover .btn-green {
-                        background: #00ff9d !important;
-                        color: #000 !important;
-                        box-shadow: 0 0 15px #00ff9d !important;
-                        text-shadow: none;
-                    }
-                </style>
                 <a href="cfx://connect/3yagxxz" class="btn btn-green">Connect Server</a>
             </div>
 
@@ -70,19 +52,17 @@
                 <i class="fa-solid fa-basket-shopping card-icon"></i>
                 <h3>NuPixel Shop</h3>
                 <p>MERCH & BENEFITS [COMING SOON]</p>
-                <span class="btn">Browse Shop</span>
+                <span class="btn btn-purple">Browse Shop</span>
             </a>
         </section>
 
         <!-- Handheld Showcase Infrastructure Segment -->
-        <section class="donation-section" style="margin-bottom: 60px; padding: 40px 20px;">
+        <section class="donation-section">
             <h2 class="section-title">ROG Ally Z1 Performance</h2>
             <p class="section-subtitle">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
             
-            <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);">
-                <!-- Fixed YouTube Player with Official Embed Target Path -->
+            <div class="video-container">
                 <iframe 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
                     src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080" 
                     title="YouTube video player" 
                     frameborder="0" 
@@ -93,12 +73,13 @@
             </div>
         </section>
 
-        <section id="rules" style="text-align: center; margin-bottom: 60px; padding: 20px;">
+        <!-- Rules Section -->
+        <section id="rules" class="rules-section">
             <h2 class="section-title">Rules</h2>
             <p class="section-subtitle">Please review our official rules before participating.</p>
             
-            <div style="margin-top: 25px;">
-                <a href="https://web.archive.org/web/20261014170706/https://www.nopixel.net/rules" target="_blank" rel="noopener noreferrer" class="btn" style="text-decoration: none; display: inline-block;">
+            <div class="rules-btn-wrapper">
+                <a href="https://web.archive.org/web/20261014170706/https://www.nopixel.net/rules" target="_blank" rel="noopener noreferrer" class="btn">
                     <i class="fa-solid fa-scale-balanced"></i> View Official Rules
                 </a>
             </div>
@@ -108,63 +89,6 @@
         <section class="donation-section">
             <h2 class="section-title">Support Project Evolution</h2>
             <p class="section-subtitle">Fuel our hardware and game servers.</p>
-            
-            <!-- Custom Styles for Crypto & Fiat Highlights (Official Logos) -->
-            <style>
-                .crypto-wallet { padding: 25px 20px; text-align: center; position: relative; border-bottom-width: 4px; border-bottom-style: solid; border-radius: 8px; }
-                .crypto-wallet .crypto-icon { width: 45px; height: 45px; margin: 0 auto 15px auto; display: block; transition: 0.3s ease; }
-                .crypto-wallet strong { font-size: 1.2rem; display: block; margin-bottom: 5px; letter-spacing: 1px; }
-                .network-text { font-size: 0.85rem; color: #888; display: block; margin-top: 5px; font-weight: normal; line-height: 1.4; }
-                
-                /* PayPal - Blue */
-                .crypto-wallet.paypal-card { border-bottom-color: #0079C1; text-decoration: none; display: block; color: inherit; }
-                .crypto-wallet.paypal-card strong { color: #0079C1; }
-                .crypto-wallet.paypal-card:hover { border-color: #0079C1; box-shadow: 0 0 20px rgba(0, 121, 193, 0.4); }
-                .crypto-wallet.paypal-card:hover .crypto-icon { filter: drop-shadow(0 0 12px rgba(0, 121, 193, 0.6)); }
-
-                /* Bitcoin (BTC) - Orange */
-                .crypto-wallet.btc { border-bottom-color: #F7931A; }
-                .crypto-wallet.btc strong { color: #F7931A; }
-                .crypto-wallet.btc:hover { border-color: #F7931A; box-shadow: 0 0 20px rgba(247, 147, 26, 0.4); }
-                .crypto-wallet.btc:hover .crypto-icon { filter: drop-shadow(0 0 12px rgba(247, 147, 26, 0.6)); }
-
-                /* Ethereum (ETH) - Purple/Blue */
-                .crypto-wallet.eth { border-bottom-color: #627EEA; }
-                .crypto-wallet.eth strong { color: #627EEA; }
-                .crypto-wallet.eth:hover { border-color: #627EEA; box-shadow: 0 0 20px rgba(98, 126, 234, 0.4); }
-                .crypto-wallet.eth:hover .crypto-icon { filter: drop-shadow(0 0 12px rgba(98, 126, 234, 0.6)); }
-
-                /* USD Coin (USDC) - Blue */
-                .crypto-wallet.usdc { border-bottom-color: #2775CA; }
-                .crypto-wallet.usdc strong { color: #2775CA; }
-                .crypto-wallet.usdc:hover { border-color: #2775CA; box-shadow: 0 0 20px rgba(39, 117, 202, 0.4); }
-                .crypto-wallet.usdc:hover .crypto-icon { filter: drop-shadow(0 0 12px rgba(39, 117, 202, 0.6)); }
-
-                /* Dogecoin (DOGE) - Gold */
-                .crypto-wallet.doge { border-bottom-color: #F3C623; }
-                .crypto-wallet.doge strong { color: #F3C623; }
-                .crypto-wallet.doge:hover { border-color: #F3C623; box-shadow: 0 0 20px rgba(243, 198, 35, 0.4); }
-                .crypto-wallet.doge:hover .crypto-icon { filter: drop-shadow(0 0 12px rgba(243, 198, 35, 0.6)); }
-
-                /* Ripple (XRP) - Cyan/Blue */
-                .crypto-wallet.xrp { border-bottom-color: #00AAE4; cursor: default; padding-bottom: 20px; }
-                .crypto-wallet.xrp strong { color: #00AAE4; }
-                .crypto-wallet.xrp:hover { border-color: #00AAE4; box-shadow: 0 0 20px rgba(0, 170, 228, 0.4); }
-                .crypto-wallet.xrp:hover .crypto-icon { filter: drop-shadow(0 0 12px rgba(0, 170, 228, 0.6)); }
-
-                /* XRP Sub-Buttons (Stacked for text fitting) */
-                .xrp-btn-container { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; width: 100%; box-sizing: border-box; }
-                .xrp-btn {
-                    width: 100%; background: rgba(0, 170, 228, 0.1); border: 2px solid #00AAE4;
-                    color: #00AAE4; border-radius: 6px; padding: 12px 0; cursor: pointer;
-                    font-size: 0.95rem; font-family: inherit; font-weight: bold; transition: all 0.2s ease;
-                    text-transform: uppercase; letter-spacing: 1px; box-sizing: border-box;
-                }
-                .xrp-btn:hover { background: #00AAE4; color: #000; box-shadow: 0 0 15px rgba(0, 170, 228, 0.8); }
-                
-                /* Memo Warning text */
-                .warning-text { color: #ff4444; font-weight: bold; font-size: 0.85rem; display: block; margin-top: 5px; letter-spacing: 1px; }
-            </style>
 
             <div class="donation-grid">
                 <!-- PayPal -->
