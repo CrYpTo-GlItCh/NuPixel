@@ -13,7 +13,7 @@
     <!-- NuPixel Full-Motion Visual Background -->
     <div class="video-background">
         <!-- Fallback image loads immediately, or if video fails/is disabled on mobile -->
-        <img src="fallback-bg.jpg" alt="NuPixel City" class="fallback-bg">
+        <img src="bg_fallback_3.jpg" alt="NuPixel City" class="fallback-bg">
         
         <!-- Autoplaying, muted, looping background video -->
         <video autoplay loop muted playsinline id="bg-video">
@@ -192,8 +192,8 @@
             const defaultText = `NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens // ${localsFormatted} Locals in the City`;
             
             try {
-                // Secure Direct FiveM Server Polling via proxy domain
-                const response = await fetch('https://play.nupixel.xyz/players.json');
+                // Direct FiveM Server Polling via direct IP
+                const response = await fetch('http://13.140.240.127/players.json');
                 if (!response.ok) throw new Error('Server unreachable');
                 
                 const playersData = await response.json();
