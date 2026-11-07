@@ -78,8 +78,10 @@
             <p class="section-subtitle">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
             
             <div class="video-container">
+                <!-- Added id="showcase-video" and &enablejsapi=1 to the URL -->
                 <iframe 
-                    src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080" 
+                    id="showcase-video"
+                    src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080&enablejsapi=1" 
                     title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -212,6 +214,22 @@
             }
         }
 
+        <!-- YouTube IFrame API for Volume Control & Autoplay -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var ytPlayer;
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('showcase-video', {
+                events: {
+                    'onReady': function(event) {
+                        event.target.setVolume(50); // Sets volume to half
+                        event.target.playVideo();   // Triggers autoplay
+                    }
+                }
+            });
+        }
+    </script>
+        
         // Initialize loops
         updateFiveMPlayers();
         setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
