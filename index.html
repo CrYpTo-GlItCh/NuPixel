@@ -192,13 +192,15 @@
             const defaultText = `NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens // ${localsFormatted} Locals in the City`;
             
             try {
-                // Official CFX API Polling
-                const cfxResponse = await fetch('https://servers-frontend.fivem.net/api/servers/single/3yagxxz');
-                if (!cfxResponse.ok) throw new Error('CFX API unreachable');
+                // Direct FiveM Server Polling
+                const response = await fetch('http://13.140.240.127:30120/players.json');
+                if (!response.ok) throw new Error('Server unreachable');
                 
-                const cfxData = await cfxResponse.json();
-                if (cfxData && cfxData.Data && typeof cfxData.Data.clients !== 'undefined') {
-                    const count = cfxData.Data.clients || 0;
+                const playersData = await response.json();
+                
+                // players.json returns an array of players. The count is the array length.
+                if (Array.isArray(playersData)) {
+                    const count = playersData.length;
                     statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} Citizens // ${localsFormatted} Locals in the City`;
                 } else {
                     statusElement.innerText = defaultText;
