@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <body>
     <!-- NuPixel Full-Motion Visual Background -->
     <div class="video-background">
         <!-- Fallback image loads immediately, or if video fails/is disabled on mobile -->
@@ -78,10 +77,9 @@
             <p class="section-subtitle">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
             
             <div class="video-container">
-                <!-- Added id="showcase-video" and &enablejsapi=1 to the URL -->
+                <!-- Native Autoplay, Mute, and Loop parameters applied -->
                 <iframe 
-                    id="showcase-video"
-                    src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080&enablejsapi=1" 
+                    src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080&autoplay=1&mute=1&loop=1&playlist=ZGxj3Q-mezM" 
                     title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -180,66 +178,26 @@
             const defaultText = "NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens in the City";
             
             try {
-                // Primary Method: Direct Reverse Proxy
-                const response = await fetch('https://play.nupixel.xyz');
-                if (!response.ok) throw new Error('Proxy unreachable');
+                // Official CFX API Polling
+                const cfxResponse = await fetch('https://servers-frontend.fivem.net/api/servers/single/3yagxxz');
+                if (!cfxResponse.ok) throw new Error('CFX API unreachable');
                 
-                const playersArray = await response.json();
-                if (Array.isArray(playersArray)) {
-                    const count = playersArray.length || 0;
+                const cfxData = await cfxResponse.json();
+                if (cfxData && cfxData.Data && typeof cfxData.Data.clients !== 'undefined') {
+                    const count = cfxData.Data.clients || 0;
                     statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} Citizens in the City`;
-                    return; // Success, exit function
-                }
-                throw new Error('Invalid data format from proxy');
-                
-            } catch (primaryErr) {
-                console.warn("Primary polling failed, attempting CFX fallback:", primaryErr);
-                
-                try {
-                    // Fallback Method: Official CFX API
-                    const cfxResponse = await fetch('https://servers-frontend.fivem.net/api/servers/single/3yagxxz');
-                    if (!cfxResponse.ok) throw new Error('CFX API unreachable');
-                    
-                    const cfxData = await cfxResponse.json();
-                    if (cfxData && cfxData.Data && typeof cfxData.Data.clients !== 'undefined') {
-                        const count = cfxData.Data.clients || 0;
-                        statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} Citizens in the City`;
-                    } else {
-                        statusElement.innerText = defaultText;
-                    }
-                } catch (fallbackErr) {
-                    console.error("Both polling methods failed:", fallbackErr);
+                } else {
                     statusElement.innerText = defaultText;
                 }
+            } catch (err) {
+                console.error("Player polling failed:", err);
+                statusElement.innerText = defaultText;
             }
         }
 
-        <!-- YouTube IFrame API for Volume Control, Autoplay, & Looping -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script>
-        var ytPlayer;
-        function onYouTubeIframeAPIReady() {
-            ytPlayer = new YT.Player('showcase-video', {
-                events: {
-                    'onReady': function(event) {
-                        event.target.setVolume(50); // Sets volume to half
-                        event.target.playVideo();   // Triggers autoplay
-                    },
-                    'onStateChange': function(event) {
-                        // When the video ends (State 0), tell it to play again
-                        if (event.data === YT.PlayerState.ENDED) {
-                            event.target.playVideo();
-                        }
-                    }
-                }
-            });
-        }
+        // Initialize loops
+        updateFiveMPlayers();
+        setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
     </script>
-
-        <script>
-            // Initialize loops
-            updateFiveMPlayers();
-            setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
-        </script>
-    </body>
+</body>
 </html>
