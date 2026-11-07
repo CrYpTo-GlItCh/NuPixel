@@ -6,6 +6,9 @@
     --neon-green: #00ff9d;
     --neon-purple: #bd00ff;
     --pink: #ff00ea;
+    --neon-orange: #ff8c00;
+    --neon-yellow: #ffee00;
+    --neon-red: #ff003c;
     --text-main: #e0e0e0;
     --border-glow: rgba(0, 240, 255, 0.3);
     --border-color: rgba(255, 255, 255, 0.1);
@@ -120,16 +123,16 @@ body {
 }
 
 .highlight-cyan { 
-    color: transparent; /* Fallback */
-    -webkit-text-fill-color: transparent; /* Forces hollow fill */
-    -webkit-text-stroke: 2px var(--cyan); /* Hollow neon stroke */
+    color: transparent; 
+    -webkit-text-fill-color: transparent; 
+    -webkit-text-stroke: 2px var(--cyan); 
     text-shadow: 0 0 15px var(--cyan), 0 0 30px rgba(0, 240, 255, 0.4); 
 }
 
 .highlight-pink { 
-    color: transparent; /* Fallback */
-    -webkit-text-fill-color: transparent; /* Forces hollow fill */
-    -webkit-text-stroke: 2px var(--pink); /* Hollow neon stroke */
+    color: transparent; 
+    -webkit-text-fill-color: transparent; 
+    -webkit-text-stroke: 2px var(--pink); 
     text-shadow: 0 0 15px var(--pink), 0 0 30px rgba(255, 0, 234, 0.4); 
 }
 
@@ -138,11 +141,48 @@ body {
     20%, 24%, 55% { opacity: 0.7; text-shadow: none; }
 }
 
+/* Hollow Neon Section Utility Classes */
+.neon-hollow-purple {
+    color: transparent; -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+    font-weight: bold;
+}
+.neon-hollow-red {
+    color: transparent; -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-red);
+    text-shadow: 0 0 12px var(--neon-red);
+}
+.neon-hollow-red-sub {
+    color: transparent; -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px var(--neon-red);
+    text-shadow: 0 0 5px var(--neon-red);
+}
+.neon-hollow-orange {
+    color: transparent; -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-orange);
+    text-shadow: 0 0 12px var(--neon-orange);
+}
+.neon-hollow-orange-sub {
+    color: transparent; -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px var(--neon-orange);
+    text-shadow: 0 0 5px var(--neon-orange);
+}
+.neon-hollow-yellow {
+    color: transparent; -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-yellow);
+    text-shadow: 0 0 12px var(--neon-yellow);
+}
+.neon-hollow-yellow-sub {
+    color: transparent; -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px var(--neon-yellow);
+    text-shadow: 0 0 5px var(--neon-yellow);
+}
+
 .tagline {
     font-size: 1.2rem;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    color: #aaa;
 }
 
 .n100-badge {
@@ -159,14 +199,14 @@ body {
 
 .section-title {
     font-size: 2rem;
-    color: #fff;
+    color: #fff; /* fallback */
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .section-subtitle {
-    color: #888;
+    color: #888; /* fallback */
     margin-bottom: 30px;
 }
 
