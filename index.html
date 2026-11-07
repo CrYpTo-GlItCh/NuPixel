@@ -109,54 +109,56 @@
             <h2 class="section-title">Support Project Evolution</h2>
             <p class="section-subtitle">Fuel our hardware and game servers.</p>
             
-            <!-- Custom Styles for Crypto & Fiat Highlights -->
+            <!-- Custom Styles for Crypto & Fiat Highlights (Larger Buttons) -->
             <style>
-                .crypto-wallet { padding: 15px; text-align: center; position: relative; }
-                .crypto-wallet i { font-size: 1.8rem; margin-bottom: 8px; display: block; transition: 0.3s ease; }
-                .network-text { font-size: 0.75rem; color: #888; display: block; margin-top: 5px; font-weight: normal; line-height: 1.4; }
+                .crypto-wallet { padding: 25px 20px; text-align: center; position: relative; border-bottom-width: 4px; border-bottom-style: solid; border-radius: 8px; }
+                .crypto-wallet i { font-size: 2.5rem; margin-bottom: 15px; display: block; transition: 0.3s ease; }
+                .crypto-wallet strong { font-size: 1.2rem; display: block; margin-bottom: 5px; letter-spacing: 1px; }
+                .network-text { font-size: 0.85rem; color: #888; display: block; margin-top: 5px; font-weight: normal; line-height: 1.4; }
                 
                 /* PayPal - Blue */
-                .crypto-wallet.paypal-card { border-bottom: 3px solid #0079C1; text-decoration: none; display: block; color: inherit; }
+                .crypto-wallet.paypal-card { border-bottom-color: #0079C1; text-decoration: none; display: block; color: inherit; }
                 .crypto-wallet.paypal-card i, .crypto-wallet.paypal-card strong { color: #0079C1; }
-                .crypto-wallet.paypal-card:hover { border-color: #0079C1; box-shadow: 0 0 15px rgba(0, 121, 193, 0.3); }
+                .crypto-wallet.paypal-card:hover { border-color: #0079C1; box-shadow: 0 0 20px rgba(0, 121, 193, 0.4); }
 
                 /* Bitcoin (BTC) - Orange */
-                .crypto-wallet.btc { border-bottom: 3px solid #F7931A; }
+                .crypto-wallet.btc { border-bottom-color: #F7931A; }
                 .crypto-wallet.btc i, .crypto-wallet.btc strong { color: #F7931A; }
-                .crypto-wallet.btc:hover { border-color: #F7931A; box-shadow: 0 0 15px rgba(247, 147, 26, 0.3); }
+                .crypto-wallet.btc:hover { border-color: #F7931A; box-shadow: 0 0 20px rgba(247, 147, 26, 0.4); }
 
                 /* Ethereum (ETH) - Purple/Blue */
-                .crypto-wallet.eth { border-bottom: 3px solid #627EEA; }
+                .crypto-wallet.eth { border-bottom-color: #627EEA; }
                 .crypto-wallet.eth i, .crypto-wallet.eth strong { color: #627EEA; }
-                .crypto-wallet.eth:hover { border-color: #627EEA; box-shadow: 0 0 15px rgba(98, 126, 234, 0.3); }
+                .crypto-wallet.eth:hover { border-color: #627EEA; box-shadow: 0 0 20px rgba(98, 126, 234, 0.4); }
 
                 /* USD Coin (USDC) - Blue */
-                .crypto-wallet.usdc { border-bottom: 3px solid #2775CA; }
+                .crypto-wallet.usdc { border-bottom-color: #2775CA; }
                 .crypto-wallet.usdc i, .crypto-wallet.usdc strong { color: #2775CA; }
-                .crypto-wallet.usdc:hover { border-color: #2775CA; box-shadow: 0 0 15px rgba(39, 117, 202, 0.3); }
+                .crypto-wallet.usdc:hover { border-color: #2775CA; box-shadow: 0 0 20px rgba(39, 117, 202, 0.4); }
 
                 /* Dogecoin (DOGE) - Gold */
-                .crypto-wallet.doge { border-bottom: 3px solid #F3C623; }
+                .crypto-wallet.doge { border-bottom-color: #F3C623; }
                 .crypto-wallet.doge i, .crypto-wallet.doge strong { color: #F3C623; }
-                .crypto-wallet.doge:hover { border-color: #F3C623; box-shadow: 0 0 15px rgba(243, 198, 35, 0.3); }
+                .crypto-wallet.doge:hover { border-color: #F3C623; box-shadow: 0 0 20px rgba(243, 198, 35, 0.4); }
 
                 /* Ripple (XRP) - Cyan/Blue */
-                .crypto-wallet.xrp { border-bottom: 3px solid #00AAE4; cursor: default; padding-bottom: 15px; }
+                .crypto-wallet.xrp { border-bottom-color: #00AAE4; cursor: default; padding-bottom: 20px; }
                 .crypto-wallet.xrp i, .crypto-wallet.xrp strong { color: #00AAE4; }
-                .crypto-wallet.xrp:hover { border-color: #00AAE4; box-shadow: 0 0 15px rgba(0, 170, 228, 0.3); }
-                .crypto-wallet.xrp:hover i { text-shadow: 0 0 10px rgba(0, 170, 228, 0.5); }
+                .crypto-wallet.xrp:hover { border-color: #00AAE4; box-shadow: 0 0 20px rgba(0, 170, 228, 0.4); }
+                .crypto-wallet.xrp:hover i { text-shadow: 0 0 12px rgba(0, 170, 228, 0.6); }
 
-                /* XRP Sub-Buttons */
-                .xrp-btn-container { display: flex; gap: 8px; margin-top: 12px; width: 100%; justify-content: center; }
+                /* XRP Sub-Buttons (Larger) */
+                .xrp-btn-container { display: flex; gap: 10px; margin-top: 15px; width: 100%; justify-content: center; }
                 .xrp-btn {
-                    flex: 1; background: rgba(0, 170, 228, 0.1); border: 1px solid #00AAE4;
-                    color: #00AAE4; border-radius: 4px; padding: 6px 0; cursor: pointer;
-                    font-size: 0.8rem; font-family: inherit; font-weight: bold; transition: all 0.2s ease;
+                    flex: 1; background: rgba(0, 170, 228, 0.1); border: 2px solid #00AAE4;
+                    color: #00AAE4; border-radius: 6px; padding: 10px 0; cursor: pointer;
+                    font-size: 0.95rem; font-family: inherit; font-weight: bold; transition: all 0.2s ease;
+                    text-transform: uppercase; letter-spacing: 1px;
                 }
-                .xrp-btn:hover { background: #00AAE4; color: #000; box-shadow: 0 0 10px rgba(0, 170, 228, 0.8); }
+                .xrp-btn:hover { background: #00AAE4; color: #000; box-shadow: 0 0 15px rgba(0, 170, 228, 0.8); }
                 
                 /* Memo Warning text */
-                .warning-text { color: #ff4444; font-weight: bold; font-size: 0.75rem; display: block; margin-top: 2px; }
+                .warning-text { color: #ff4444; font-weight: bold; font-size: 0.85rem; display: block; margin-top: 5px; letter-spacing: 1px; }
             </style>
 
             <div class="donation-grid">
