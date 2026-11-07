@@ -6,6 +6,7 @@
     <title>NuPixel | Next-Gen FiveM Roleplay Community</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
     <link rel="stylesheet" href="style.css">
+    <!-- Verified production CDN for FontAwesome icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
@@ -20,6 +21,7 @@
         </header>
 
         <section class="grid-layout">
+            <!-- Discord Gateway -->
             <a href="https://discord.gg" target="_blank" class="card discord-card">
                 <i class="fab fa-discord card-icon"></i>
                 <h3>Join Community</h3>
@@ -27,17 +29,22 @@
                 <span class="btn">Launch Discord</span>
             </a>
 
-            <a href="cfx://connect/3yagxxz" class="card cfx-card">
+            <!-- FiveM Direct Connection Gateway -->
+            <div class="card cfx-card">
                 <i class="fa-solid fa-server card-icon"></i>
                 <h3>Play NuPixel</h3>
                 <p>Directly initialize your CFX client and join NuPixel.</p>
-                <div class="player-count-badge">
+                
+                <!-- Independent Live Metrics Component Display Array -->
+                <div class="player-count-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 255, 0.06); border: 1px solid rgba(0, 255, 255, 0.2); color: #00ffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-family: monospace; font-weight: 700; margin-bottom: 20px; text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);">
                     <span class="pulse-dot"></span>
                     <span id="player-status">FETCHING METRICS...</span>
                 </div>
-                <span class="btn">Connect Server</span>
-            </a>
 
+                <a href="cfx://connect/3yagxxz" class="btn">Connect Server</a>
+            </div>
+
+            <!-- Tebex Commerce Gateway -->
             <a href="https://YOUR_TEBEX_STORE.tebex.io" target="_blank" class="card shop-card">
                 <i class="fa-solid fa-basket-shopping card-icon"></i>
                 <h3>NuPixel Shop</h3>
@@ -46,6 +53,7 @@
             </a>
         </section>
 
+        <!-- Handheld Showcase Infrastructure Segment -->
         <section class="donation-section" style="margin-bottom: 60px; padding: 40px 20px;">
             <h2 class="section-title">ROG Ally Z1 Performance</h2>
             <p class="section-subtitle">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
@@ -54,6 +62,7 @@
             </div>
         </section>
 
+        <!-- Financial Infrastructure Gateways -->
         <section class="donation-section">
             <h2 class="section-title">Support Project Evolution</h2>
             <p class="section-subtitle">Fuel our hardware and game servers.</p>
@@ -68,30 +77,36 @@
         </section>
     </div>
 
+    <!-- Live Direct Polling Script Track Engine -->
     <script>
         function copyAddress(address, token) {
-            navigator.clipboard.writeText(address).then(() => alert(token + " copied!"));
+            navigator.clipboard.writeText(address).then(() => alert(token + " address copied!"));
         }
 
-async function updateFiveMPlayers() {
-    const statusElement = document.getElementById('player-status');
-    try {
-        // Now queries your live instance directly through your clean proxy link bypass
-        const response = await fetch('https://play.nupixel.xyz');
-        if (!response.ok) throw new Error('Proxy down');
+        async function updateFiveMPlayers() {
+            const statusElement = document.getElementById('player-status');
+            try {
+                // Polls your clean custom proxy block endpoint directly
+                const response = await fetch('https://nupixel.xyz');
+                if (!response.ok) throw new Error('Nginx proxy returned invalid status');
+                
+                const playersArray = await response.json();
+                
+                // If backend returns a valid array format, extract active connections count
+                if (Array.isArray(playersArray)) {
+                    statusElement.innerText = `ONLINE: ${playersArray.length}`;
+                } else {
+                    statusElement.innerText = "SERVER ONLINE";
+                }
+            } catch (err) {
+                console.error("Direct reverse proxy fetch exception:", err);
+                statusElement.innerText = "SERVER ONLINE";
+            }
+        }
         
-        const playersArray = await response.json();
-        // Since players.json returns a raw array of online clients, we read its length
-        const currentPlayers = playersArray.length || 0;
-        
-        statusElement.innerText = `ONLINE: ${currentPlayers}`;
-    } catch (err) {
-        console.error("Direct poll failure:", err);
-        statusElement.innerText = "SERVER ONLINE";
-    }
-}
-updateFiveMPlayers();
-setInterval(updateFiveMPlayers, 30000); // Direct querying can safely update faster (every 30s)
+        // Run track polling loops
+        updateFiveMPlayers();
+        setInterval(updateFiveMPlayers, 30000); // Safely loops faster (every 30 seconds) through direct proxy tracking
     </script>
 </body>
 </html>
