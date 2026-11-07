@@ -206,7 +206,7 @@
         setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
     </script>
     
-    <!-- YouTube IFrame API for Unmute Overlay -->
+    <!-- YouTube IFrame API for Global Unmute -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         var ytPlayer;
@@ -215,16 +215,23 @@
             ytPlayer = new YT.Player('showcase-video');
         }
 
-        // Listen for clicks on our custom overlay
-        document.getElementById('unmute-overlay').addEventListener('click', function() {
+        // Global Click-to-Unmute for the YouTube Video
+        document.body.addEventListener('click', function unmuteYouTubeVideo() {
             if (ytPlayer && ytPlayer.unMute) {
-                ytPlayer.unMute();           // Unmute the video
-                ytPlayer.setVolume(50);      // Set to 50% volume
-                this.style.opacity = '0';    // Fade out the overlay
+                ytPlayer.unMute();           // Unmute the YouTube video
+                ytPlayer.setVolume(30);      // Set to 30% ambient volume
                 
-                setTimeout(() => {
-                    this.style.display = 'none'; // Remove from DOM
-                }, 300);
+                // Hide the specific video overlay if it's there
+                const overlay = document.getElementById('unmute-overlay');
+                if (overlay) {
+                    overlay.style.opacity = '0';    
+                    setTimeout(() => {
+                        overlay.style.display = 'none'; 
+                    }, 300);
+                }
+                
+                // Remove the listener after it fires once
+                document.body.removeEventListener('click', unmuteYouTubeVideo);
             }
         });
     </script>
