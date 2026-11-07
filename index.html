@@ -144,29 +144,46 @@
             });
         }
 
-        async function updateFiveMPlayers() {
-            const statusElement = document.getElementById('player-status');
+async function updateFiveMPlayers() {
+        const statusElement = document.getElementById('player-status');
+        const defaultText = "NUPIXEL INSTANCE STATUS // ONLINE";
+        
+        try {
+            // Primary Method: Direct Reverse Proxy
+            const response = await fetch('https://play.nupixel.xyz');
+            if (!response.ok) throw new Error('Proxy unreachable');
+            
+            const playersArray = await response.json();
+            if (Array.isArray(playersArray)) {
+                statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${playersArray.length} CLANSMEN`;
+                return; // Success, exit function
+            }
+            throw new Error('Invalid data format from proxy');
+            
+        } catch (primaryErr) {
+            console.warn("Primary polling failed, attempting CFX fallback:", primaryErr);
+            
             try {
-                // Configured to securely poll metrics directly from your reverse proxy
-                const response = await fetch('https://play.nupixel.xyz');
-                if (!response.ok) throw new Error('Proxy unreachable');
+                // Fallback Method: Official CFX API
+                const cfxResponse = await fetch('https://servers-frontend.fivem.net/api/servers/single/3yagxxz');
+                if (!cfxResponse.ok) throw new Error('CFX API unreachable');
                 
-                const playersArray = await response.json();
-                
-                if (Array.isArray(playersArray)) {
-                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${playersArray.length} CLANSMEN`;
+                const cfxData = await cfxResponse.json();
+                if (cfxData && cfxData.Data && cfxData.Data.clients !== undefined) {
+                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${cfxData.Data.clients} CLANSMEN`;
                 } else {
-                    statusElement.innerText = "NUPIXEL INSTANCE STATUS // ONLINE";
+                    statusElement.innerText = defaultText;
                 }
-            } catch (err) {
-                console.error("Direct reverse proxy fetch exception:", err);
-                statusElement.innerText = "NUPIXEL INSTANCE STATUS // ONLINE";
+            } catch (fallbackErr) {
+                console.error("Both polling methods failed:", fallbackErr);
+                statusElement.innerText = defaultText;
             }
         }
-        
-        // Initialize loops
-        updateFiveMPlayers();
-        setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
-    </script>
+    }
+
+    // Initialize loops
+    updateFiveMPlayers();
+    setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
+</script>
 </body>
 </html>
