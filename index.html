@@ -217,9 +217,10 @@
 
         // Global Click-to-Unmute for the YouTube Video
         document.body.addEventListener('click', function unmuteYouTubeVideo() {
-            if (ytPlayer && ytPlayer.unMute) {
+            if (ytPlayer && ytPlayer.unMute && typeof ytPlayer.playVideo === 'function') {
                 ytPlayer.unMute();           // Unmute the YouTube video
                 ytPlayer.setVolume(30);      // Set to 30% ambient volume
+                ytPlayer.playVideo();        // Force it to play in case the browser auto-paused it
                 
                 // Hide the specific video overlay if it's there
                 const overlay = document.getElementById('unmute-overlay');
