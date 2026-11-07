@@ -77,9 +77,15 @@
             <p class="section-subtitle">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
             
             <div class="video-container">
-                <!-- Native Autoplay, Mute, and Loop parameters applied -->
+                <!-- Custom Unmute Overlay -->
+                <div id="unmute-overlay" class="unmute-overlay">
+                    <i class="fa-solid fa-volume-xmark"></i> Click to Unmute
+                </div>
+                
+                <!-- Native Autoplay, Mute, Loop, AND enablejsapi=1 applied -->
                 <iframe 
-                    src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080&autoplay=1&mute=1&loop=1&playlist=ZGxj3Q-mezM" 
+                    id="showcase-video"
+                    src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080&autoplay=1&mute=1&loop=1&playlist=ZGxj3Q-mezM&enablejsapi=1" 
                     title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -198,6 +204,29 @@
         // Initialize loops
         updateFiveMPlayers();
         setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
+    </script>
+    
+    <!-- YouTube IFrame API for Unmute Overlay -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var ytPlayer;
+        
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('showcase-video');
+        }
+
+        // Listen for clicks on our custom overlay
+        document.getElementById('unmute-overlay').addEventListener('click', function() {
+            if (ytPlayer && ytPlayer.unMute) {
+                ytPlayer.unMute();           // Unmute the video
+                ytPlayer.setVolume(50);      // Set to 50% volume
+                this.style.opacity = '0';    // Fade out the overlay
+                
+                setTimeout(() => {
+                    this.style.display = 'none'; // Remove from DOM
+                }, 300);
+            }
+        });
     </script>
 </body>
 </html>
