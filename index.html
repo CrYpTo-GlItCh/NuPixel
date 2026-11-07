@@ -157,7 +157,7 @@
 
         async function updateFiveMPlayers() {
             const statusElement = document.getElementById('player-status');
-            const defaultText = "NUPIXEL INSTANCE STATUS // ONLINE: 0 CLANSMEN";
+            const defaultText = "NUPIXEL INSTANCE STATUS // ONLINE: 0 Citizens in the City";
             
             try {
                 // Primary Method: Direct Reverse Proxy
@@ -167,7 +167,7 @@
                 const playersArray = await response.json();
                 if (Array.isArray(playersArray)) {
                     const count = playersArray.length || 0;
-                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} CLANSMEN`;
+                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} Citizens in the City`;
                     return; // Success, exit function
                 }
                 throw new Error('Invalid data format from proxy');
@@ -183,7 +183,7 @@
                     const cfxData = await cfxResponse.json();
                     if (cfxData && cfxData.Data && typeof cfxData.Data.clients !== 'undefined') {
                         const count = cfxData.Data.clients || 0;
-                        statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} CLANSMEN`;
+                        statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${count} Citizens in the City`;
                     } else {
                         statusElement.innerText = defaultText;
                     }
