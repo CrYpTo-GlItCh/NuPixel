@@ -10,17 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <!-- NuPixel Full-Motion Visual Background -->
     <div class="video-background">
         <!-- Fallback image loads immediately, or if video fails/is disabled on mobile -->
         <img src="bg_fallback_3.jpg" alt="NuPixel City" class="fallback-bg">
-        
         <!-- Autoplaying, muted, looping background video -->
         <video autoplay loop muted playsinline id="bg-video">
             <source src="background.mp4" type="video/mp4">
         </video>
-        
         <!-- Dark gradient overlay to ensure text remains readable -->
         <div class="video-overlay"></div>
     </div>
@@ -54,7 +51,6 @@
                 <p>Connect with players, view server updates, and submit whitelist applications.</p>
                 <span class="btn">Launch Discord</span>
             </a>
-
             <!-- FiveM Direct Connection Gateway -->
             <div class="card cfx-card">
                 <i class="fa-solid fa-server card-icon"></i>
@@ -62,7 +58,6 @@
                 <p>Directly initialize your CFX client and join NuPixel.</p>
                 <a href="cfx://connect/3yagxxz" class="btn btn-green">Connect Server</a>
             </div>
-
             <!-- Tebex Commerce Gateway -->
             <a href="https://TEBEX_STORE.tebex.io" target="_blank" class="card shop-card">
                 <i class="fa-solid fa-basket-shopping card-icon"></i>
@@ -71,7 +66,7 @@
                 <span class="btn btn-purple">Browse Shop</span>
             </a>
         </section>
-        
+
         <!-- Rules Section (Moved Above Video) -->
         <section id="rules" class="rules-section">
             <h2 class="section-title neon-hollow-red">Rules</h2>
@@ -88,14 +83,8 @@
             <h2 class="section-title neon-hollow-orange">ROG Ally Z1 Performance</h2>
             <p class="section-subtitle neon-hollow-orange-sub">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
             <div class="video-container">
-                <!-- Native Autoplay, Mute, and Loop parameters applied -->
-                <iframe 
-                    src="https://www.youtube.com/embed/ZGxj3Q-mezM?si=MtnFPbu82uiOvBCe&vq=hd1080&autoplay=1&mute=1&loop=1&playlist=ZGxj3Q-mezM" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
+                <!-- Default YouTube Embed -->
+                <iframe src="https://www.youtube.com/embed/ZGxj3Q-mezM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
         </section>
@@ -104,55 +93,42 @@
         <section class="donation-section">
             <h2 class="section-title neon-hollow-yellow">Support Project Evolution</h2>
             <p class="section-subtitle neon-hollow-yellow-sub">Fuel our hardware and game servers.</p>
-            
             <div class="donation-grid">
                 <!-- PayPal -->
                 <a href="https://paypal.me/iQuantum" target="_blank" class="crypto-wallet paypal-card">
                     <img src="https://cdn.simpleicons.org/paypal/0079C1" alt="PayPal Logo" class="crypto-icon">
-                    <strong>PayPal</strong>
-                    <span class="network-text">(FIAT / USD)</span>
+                    <strong>PayPal</strong> <span class="network-text">(FIAT / USD)</span>
                     <span class="tooltip">Click to open PayPal</span>
                 </a>
-
                 <!-- Bitcoin -->
                 <div class="crypto-wallet btc" onclick="copyAddress('3JNvWL6hSaF3kMVKydfRhfrt82wXDDcaBV', 'Bitcoin')">
                     <img src="https://cdn.simpleicons.org/bitcoin/F7931A" alt="Bitcoin Logo" class="crypto-icon">
-                    <strong>Bitcoin (BTC)</strong>
-                    <span class="network-text">(STANDARD NETWORK)</span>
+                    <strong>Bitcoin (BTC)</strong> <span class="network-text">(STANDARD NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
-
                 <!-- Ethereum -->
                 <div class="crypto-wallet eth" onclick="copyAddress('0x314523ca487b9BDf158c2072701bdCfA89AbB0e2', 'Ethereum')">
                     <img src="https://cdn.simpleicons.org/ethereum/627EEA" alt="Ethereum Logo" class="crypto-icon">
-                    <strong>Ethereum (ETH)</strong>
-                    <span class="network-text">(ETH NETWORK)</span>
+                    <strong>Ethereum (ETH)</strong> <span class="network-text">(ETH NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
-
                 <!-- USDC -->
                 <div class="crypto-wallet usdc" onclick="copyAddress('0x4cc71b7c65eF753B8f497EBFb87eae40739a29F3', 'USDC')">
                     <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC Logo" class="crypto-icon">
-                    <strong>USD Coin (USDC)</strong>
-                    <span class="network-text">(ETH NETWORK)</span>
+                    <strong>USD Coin (USDC)</strong> <span class="network-text">(ETH NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
-                
                 <!-- Dogecoin -->
                 <div class="crypto-wallet doge" onclick="copyAddress('DDVRVa3BcTAb2UC7mEEXmT3wJmViKGMsP7', 'Dogecoin')">
                     <img src="https://cdn.simpleicons.org/dogecoin/F3C623" alt="Dogecoin Logo" class="crypto-icon">
-                    <strong>Dogecoin (DOGE)</strong>
-                    <span class="network-text">(DOGECOIN NETWORK)</span>
+                    <strong>Dogecoin (DOGE)</strong> <span class="network-text">(DOGECOIN NETWORK)</span>
                     <span class="tooltip">Click to Copy Address</span>
                 </div>
-
                 <!-- Ripple (XRP) - Combined Footprint -->
                 <div class="crypto-wallet xrp">
                     <img src="https://cdn.simpleicons.org/xrp/00AAE4" alt="XRP Logo" class="crypto-icon">
-                    <strong>Ripple (XRP)</strong>
-                    <span class="network-text">(RIPPLE NETWORK)</span>
+                    <strong>Ripple (XRP)</strong> <span class="network-text">(RIPPLE NETWORK)</span>
                     <span class="warning-text">MEMO REQUIRED</span>
-                    
                     <div class="xrp-btn-container">
                         <button class="xrp-btn" onclick="copyAddress('rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg', 'XRP Address')">Address</button>
                         <button class="xrp-btn" onclick="copyAddress('4218899529', 'XRP Memo')">Memo</button>
