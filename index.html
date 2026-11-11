@@ -1,199 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NuPixel | Next-Gen FiveM Roleplay Community</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <!-- Verified production CDN for FontAwesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NuPixel | Next-Gen FiveM Roleplay Community</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- Verified production CDN for FontAwesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- NuPixel Full-Motion Visual Background -->
-    <div class="video-background">
-        <!-- Fallback image loads immediately, or if video fails/is disabled on mobile -->
-        <img src="bg_fallback_3.jpg" alt="NuPixel City" class="fallback-bg">
-        <!-- Autoplaying, muted, looping background video -->
-        <video autoplay loop muted playsinline id="bg-video">
-            <source src="background.mp4" type="video/mp4">
-        </video>
-        <!-- Dark gradient overlay to ensure text remains readable -->
-        <div class="video-overlay"></div>
+  <!-- NuPixel Full-Motion Visual Background -->
+  <div class="video-background">
+    <!-- Fallback image loads immediately, or if video fails/is disabled on mobile -->
+    <img src="bg_fallback_3.jpg" alt="NuPixel City" class="fallback-bg">
+    <!-- Autoplaying, muted, looping background video -->
+    <video autoplay loop muted playsinline id="bg-video">
+      <source src="background.mp4" type="video/mp4">
+    </video>
+    <!-- Dark gradient overlay to ensure text remains readable -->
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Existing cyber-grid -->
+  <div class="cyber-grid"></div>
+
+  <div class="container hero-gradient-overlay">
+    <header class="hero-section">
+      <h1 class="logo"><span class="highlight-cyan">Nu</span><span class="highlight-pink">Pixel</span></h1>
+      <p class="tagline neon-hollow-purple">WELCOME TO THE FUTURE OF ROLEPLAY</p>
+      <div class="n100-badge">
+        <i class="fa-solid fa-microchip"></i> OPTIMIZED FOR STEAMDECK &amp; PLAYABLE ON INTEL N100 HARDWARE
+      </div>
+    </header>
+
+    <div style="text-align: center; margin-bottom: 25px;">
+      <a href="https://nupixel.xyz/media/npx-cleaner.exe" class="neon-download-btn" style="display: inline-block; padding: 12px 24px; color: #00ffff; border: 2px solid #00ffff; text-decoration: none; font-weight: bold; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); transition: 0.3s;">
+        <i class="fa-solid fa-download"></i> GET FREE NUPIXL LAUNCHER &amp; CACHE CLEANER (WINDOWS)
+      </a>
     </div>
 
-    <!-- Existing cyber-grid -->
-    <div class="cyber-grid"></div>
+    <!-- Dedicated Live Server Player Status Block Frame -->
+    <section class="status-section">
+      <div class="status-card">
+        <span class="pulse-dot"></span>
+        <span id="player-status" class="status-text">NUPIXEL INSTANCE STATUS // ONLINE: 0 / 0 Citizens // 16,000 Locals in the City</span>
+      </div>
+    </section>
 
-    <div class="container">
-        <header class="hero-section">
-            <h1 class="logo"><span class="highlight-cyan">Nu</span><span class="highlight-pink">Pixel</span></h1>
-            <p class="tagline neon-hollow-purple">WELCOME TO THE FUTURE OF ROLEPLAY</p>
-            <div class="n100-badge">
-                <i class="fa-solid fa-microchip"></i> OPTIMIZED FOR STEAMDECK & PLAYABLE ON INTEL N100 HARDWARE
-            </div>
-        </header>
-        
-<div style="text-align: center; margin-bottom: 25px;">
-  <a href="https://nupixel.xyz/media/npx-cleaner.exe" class="neon-download-btn" style="display: inline-block; padding: 12px 24px; color: #00ffff; border: 2px solid #00ffff; text-decoration: none; font-weight: bold; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); transition: 0.3s;">
-    <i class="fa-solid fa-download"></i> GET FREE NUPIXL LAUNCHER &amp; CACHE CLEANER (WINDOWS)
-  </a>
-</div>
-        <!-- Dedicated Live Server Player Status Block Frame -->
-        <section class="status-section">
-            <div class="status-card">
-                <span class="pulse-dot"></span>
-                <span id="player-status" class="status-text">NUPIXEL INSTANCE STATUS // ONLINE: 0 / 0 Citizens // 16,000 Locals in the City</span>
-            </div>
-        </section>
+    <!-- Main Gateways -->
+    <section class="grid-layout">
+      <!-- Discord Gateway -->
+      <a href="https://discord.gg/9f3KgEzVAg" target="_blank" class="card discord-card">
+        <i class="fab fa-discord card-icon"></i>
+        <h3>Join Community</h3>
+        <p>Connect with players, view server updates, and submit whitelist applications.</p>
+        <span class="btn">Launch Discord</span>
+      </a>
 
-        <!-- Main Gateways -->
-        <section class="grid-layout">
-            <!-- Discord Gateway -->
-            <a href="https://discord.gg/9f3KgEzVAg" target="_blank" class="card discord-card">
-                <i class="fab fa-discord card-icon"></i>
-                <h3>Join Community</h3>
-                <p>Connect with players, view server updates, and submit whitelist applications.</p>
-                <span class="btn">Launch Discord</span>
-            </a>
-            <!-- FiveM Direct Connection Gateway -->
-            <div class="card cfx-card">
-                <i class="fa-solid fa-server card-icon"></i>
-                <h3>Play NuPixel</h3>
-                <p>Directly initialize your CFX client and join NuPixel.</p>
-                <a href="cfx://connect/3yagxxz" class="btn btn-green">Connect Server</a>
-            </div>
-            <!-- Tebex Commerce Gateway -->
-            <a href="https://TEBEX_STORE.tebex.io" target="_blank" class="card shop-card">
-                <i class="fa-solid fa-basket-shopping card-icon"></i>
-                <h3>NuPixel Shop</h3>
-                <p>MERCH & BENEFITS [COMING SOON]</p>
-                <span class="btn btn-purple">Browse Shop</span>
-            </a>
-        </section>
+      <!-- FiveM Direct Connection Gateway -->
+      <div class="card cfx-card">
+        <i class="fa-solid fa-server card-icon"></i>
+        <h3>Play NuPixel</h3>
+        <p>Directly initialize your CFX client and join NuPixel.</p>
+        <a href="cfx://connect/3yagxxz" class="btn btn-green">Connect Server</a>
+      </div>
 
-        <!-- Rules Section (Moved Above Video) -->
-        <section id="rules" class="rules-section">
-            <h2 class="section-title neon-hollow-red">Rules</h2>
-            <p class="section-subtitle neon-hollow-red-sub">Please review our official rules before participating.</p>
-            <div class="rules-btn-wrapper">
-                <a href="https://web.archive.org/web/20261014170706/https://www.nopixel.net/rules" target="_blank" rel="noopener noreferrer" class="btn">
-                    <i class="fa-solid fa-scale-balanced"></i> View Official Rules
-                </a>
-            </div>
-        </section>
+      <!-- Tebex Commerce Gateway -->
+      <a href="https://TEBEX_STORE.tebex.io" target="_blank" class="card shop-card">
+        <i class="fa-solid fa-basket-shopping card-icon"></i>
+        <h3>NuPixel Shop</h3>
+        <p>MERCH &amp; BENEFITS [COMING SOON]</p>
+        <span class="btn btn-purple">Browse Shop</span>
+      </a>
+    </section>
 
-        <!-- Handheld Showcase Infrastructure Segment -->
-        <section class="donation-section">
-            <h2 class="section-title neon-hollow-orange">ROG Ally Z1 Performance</h2>
-            <p class="section-subtitle neon-hollow-orange-sub">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
-            <div class="video-container">
-                <!-- Default YouTube Embed -->
-                <iframe src="https://www.youtube.com/embed/ZGxj3Q-mezM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-            </div>
-        </section>
+    <!-- Rules Section (Moved Above Video) -->
+    <section id="rules" class="rules-section">
+      <h2 class="section-title neon-hollow-red">Rules</h2>
+      <p class="section-subtitle neon-hollow-red-sub">Please review our official rules before participating.</p>
+      <div class="rules-btn-wrapper">
+        <a href="https://web.archive.org/web/20261014170706/https://www.nopixel.net/rules" target="_blank" rel="noopener noreferrer" class="btn">
+          <i class="fa-solid fa-scale-balanced"></i> View Official Rules
+        </a>
+      </div>
+    </section>
 
-        <!-- Financial Infrastructure Gateways -->
-        <section class="donation-section">
-            <h2 class="section-title neon-hollow-yellow">Support Project Evolution</h2>
-            <p class="section-subtitle neon-hollow-yellow-sub">Fuel our hardware and game servers.</p>
-            <div class="donation-grid">
-                <!-- PayPal -->
-                <a href="https://paypal.me/iQuantum" target="_blank" class="crypto-wallet paypal-card">
-                    <img src="https://cdn.simpleicons.org/paypal/0079C1" alt="PayPal Logo" class="crypto-icon">
-                    <strong>PayPal</strong> <span class="network-text">(FIAT / USD)</span>
-                    <span class="tooltip">Click to open PayPal</span>
-                </a>
-                <!-- Bitcoin -->
-                <div class="crypto-wallet btc" onclick="copyAddress('3JNvWL6hSaF3kMVKydfRhfrt82wXDDcaBV', 'Bitcoin')">
-                    <img src="https://cdn.simpleicons.org/bitcoin/F7931A" alt="Bitcoin Logo" class="crypto-icon">
-                    <strong>Bitcoin (BTC)</strong> <span class="network-text">(STANDARD NETWORK)</span>
-                    <span class="tooltip">Click to Copy Address</span>
-                </div>
-                <!-- Ethereum -->
-                <div class="crypto-wallet eth" onclick="copyAddress('0x314523ca487b9BDf158c2072701bdCfA89AbB0e2', 'Ethereum')">
-                    <img src="https://cdn.simpleicons.org/ethereum/627EEA" alt="Ethereum Logo" class="crypto-icon">
-                    <strong>Ethereum (ETH)</strong> <span class="network-text">(ETH NETWORK)</span>
-                    <span class="tooltip">Click to Copy Address</span>
-                </div>
-                <!-- USDC -->
-                <div class="crypto-wallet usdc" onclick="copyAddress('0x4cc71b7c65eF753B8f497EBFb87eae40739a29F3', 'USDC')">
-                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC Logo" class="crypto-icon">
-                    <strong>USD Coin (USDC)</strong> <span class="network-text">(ETH NETWORK)</span>
-                    <span class="tooltip">Click to Copy Address</span>
-                </div>
-                <!-- Dogecoin -->
-                <div class="crypto-wallet doge" onclick="copyAddress('DDVRVa3BcTAb2UC7mEEXmT3wJmViKGMsP7', 'Dogecoin')">
-                    <img src="https://cdn.simpleicons.org/dogecoin/F3C623" alt="Dogecoin Logo" class="crypto-icon">
-                    <strong>Dogecoin (DOGE)</strong> <span class="network-text">(DOGECOIN NETWORK)</span>
-                    <span class="tooltip">Click to Copy Address</span>
-                </div>
-                <!-- Ripple (XRP) - Combined Footprint -->
-                <div class="crypto-wallet xrp">
-                    <img src="https://cdn.simpleicons.org/xrp/00AAE4" alt="XRP Logo" class="crypto-icon">
-                    <strong>Ripple (XRP)</strong> <span class="network-text">(RIPPLE NETWORK)</span>
-                    <span class="warning-text">MEMO REQUIRED</span>
-                    <div class="xrp-btn-container">
-                        <button class="xrp-btn" onclick="copyAddress('rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg', 'XRP Address')">Address</button>
-                        <button class="xrp-btn" onclick="copyAddress('4218899529', 'XRP Memo')">Memo</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    <!-- Handheld Showcase Infrastructure Segment -->
+    <section class="donation-section">
+      <h2 class="section-title neon-hollow-orange">ROG Ally Z1 Performance</h2>
+      <p class="section-subtitle neon-hollow-orange-sub">NoPixel vs. NuPixel optimization comparison on handheld hardware</p>
+      <div class="video-container">
+        <!-- Default YouTube Embed -->
+        <iframe src="https://www.youtube.com/embed/ZGxj3Q-mezM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
-    <!-- Live Direct Polling Script Track Engine -->
-    <script>
-        function copyAddress(address, token) {
-            navigator.clipboard.writeText(address).then(() => {
-                alert(token + " wallet address copied successfully to clipboard!");
-            }).catch(err => {
-                console.error('Could not copy text: ', err);
-            });
+    <!-- Financial Infrastructure Gateways -->
+    <section class="donation-section">
+      <h2 class="section-title neon-hollow-yellow">Support Project Evolution</h2>
+      <p class="section-subtitle neon-hollow-yellow-sub">Fuel our hardware and game servers.</p>
+      <div class="donation-grid">
+        <!-- PayPal -->
+        <a href="https://paypal.me/iQuantum" target="_blank" class="crypto-wallet paypal-card">
+          <img src="https://cdn.simpleicons.org/paypal/0079C1" alt="PayPal Logo" class="crypto-icon">
+          <strong>PayPal</strong>
+          <span class="network-text">(FIAT / USD)</span>
+          <span class="tooltip">Click to open PayPal</span>
+        </a>
+
+        <!-- Bitcoin -->
+        <div class="crypto-wallet btc" onclick="copyAddress('3JNvWL6hSaF3kMVKydfRhfrt82wXDDcaBV', 'Bitcoin')">
+          <img src="https://cdn.simpleicons.org/bitcoin/F7931A" alt="Bitcoin Logo" class="crypto-icon">
+          <strong>Bitcoin (BTC)</strong>
+          <span class="network-text">(STANDARD NETWORK)</span>
+          <span class="tooltip">Click to Copy Address</span>
+        </div>
+
+        <!-- Ethereum -->
+        <div class="crypto-wallet eth" onclick="copyAddress('0x314523ca487b9BDf158c2072701bdCfA89AbB0e2', 'Ethereum')">
+          <img src="https://cdn.simpleicons.org/ethereum/627EEA" alt="Ethereum Logo" class="crypto-icon">
+          <strong>Ethereum (ETH)</strong>
+          <span class="network-text">(ETH NETWORK)</span>
+          <span class="tooltip">Click to Copy Address</span>
+        </div>
+
+        <!-- USDC -->
+        <div class="crypto-wallet usdc" onclick="copyAddress('0x4cc71b7c65eF753B8f497EBFb87eae40739a29F3', 'USDC')">
+          <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC Logo" class="crypto-icon">
+          <strong>USD Coin (USDC)</strong>
+          <span class="network-text">(ETH NETWORK)</span>
+          <span class="tooltip">Click to Copy Address</span>
+        </div>
+
+        <!-- Dogecoin -->
+        <div class="crypto-wallet doge" onclick="copyAddress('DDVRVa3BcTAb2UC7mEEXmT3wJmViKGMsP7', 'Dogecoin')">
+          <img src="https://cdn.simpleicons.org/dogecoin/F3C623" alt="Dogecoin Logo" class="crypto-icon">
+          <strong>Dogecoin (DOGE)</strong>
+          <span class="network-text">(DOGECOIN NETWORK)</span>
+          <span class="tooltip">Click to Copy Address</span>
+        </div>
+
+        <!-- Ripple (XRP) - Combined Footprint -->
+        <div class="crypto-wallet xrp">
+          <img src="https://cdn.simpleicons.org/xrp/00AAE4" alt="XRP Logo" class="crypto-icon">
+          <strong>Ripple (XRP)</strong>
+          <span class="network-text">(RIPPLE NETWORK)</span>
+          <span class="warning-text">MEMO REQUIRED</span>
+          <div class="xrp-btn-container">
+            <button class="xrp-btn" onclick="copyAddress('rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg', 'XRP Address')">Address</button>
+            <button class="xrp-btn" onclick="copyAddress('4218899529', 'XRP Memo')">Memo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Live Direct Polling Script Track Engine -->
+  <script>
+    function copyAddress(address, token) {
+      navigator.clipboard.writeText(address).then(() => {
+        alert(token + " wallet address copied successfully to clipboard!");
+      }).catch(err => {
+        console.error('Could not copy text: ', err);
+      });
+    }
+
+    // Initialize locals count hovering around 16,000 with a slight random offset
+    let currentLocals = 16000 + Math.floor(Math.random() * 200) - 100;
+
+    async function updateFiveMPlayers() {
+      const statusElement = document.getElementById('player-status');
+      
+      // Shift the locals count up or down by a random number between -7 and +7
+      const change = Math.floor(Math.random() * 15) - 7;
+      currentLocals += change;
+
+      // Enforce the hard limits
+      if (currentLocals < 11777) currentLocals = 11777;
+      if (currentLocals > 17777) currentLocals = 17777;
+
+      // Format the number with commas for better readability (e.g., 16,005)
+      const localsFormatted = currentLocals.toLocaleString();
+      const defaultText = `NUPIXEL INSTANCE STATUS // ONLINE: 0 / 0 Citizens // ${localsFormatted} Locals in the City`;
+
+      try {
+        // CFX API Polling
+        const response = await fetch('https://frontend.cfx-services.net/api/servers/single/3yagxxz');
+        if (!response.ok) throw new Error('Server unreachable');
+        const data = await response.json();
+
+        // The CFX API returns server info inside a 'Data' object
+        if (data && data.Data) {
+          const connectedClients = data.Data.clients || 0;
+          const maxClients = data.Data.sv_maxclients || 0;
+          statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${connectedClients} / ${maxClients} Citizens // ${localsFormatted} Locals in the City`;
+        } else {
+          statusElement.innerText = defaultText;
         }
+      } catch (err) {
+        console.error("Player polling failed:", err);
+        statusElement.innerText = defaultText;
+      }
+    }
 
-        // Initialize locals count hovering around 16,000 with a slight random offset
-        let currentLocals = 16000 + Math.floor(Math.random() * 200) - 100;
-
-        async function updateFiveMPlayers() {
-            const statusElement = document.getElementById('player-status');
-
-            // Shift the locals count up or down by a random number between -7 and +7
-            const change = Math.floor(Math.random() * 15) - 7;
-            currentLocals += change;
-
-            // Enforce the hard limits
-            if (currentLocals < 11777) currentLocals = 11777;
-            if (currentLocals > 17777) currentLocals = 17777;
-
-            // Format the number with commas for better readability (e.g., 16,005)
-            const localsFormatted = currentLocals.toLocaleString();
-            const defaultText = `NUPIXEL INSTANCE STATUS // ONLINE: 0 / 0 Citizens // ${localsFormatted} Locals in the City`;
-
-            try {
-                // CFX API Polling
-                const response = await fetch('https://frontend.cfx-services.net/api/servers/single/3yagxxz');
-                if (!response.ok) throw new Error('Server unreachable');
-                const data = await response.json();
-
-                // The CFX API returns server info inside a 'Data' object
-                if (data && data.Data) {
-                    const connectedClients = data.Data.clients || 0;
-                    const maxClients = data.Data.sv_maxclients || 0;
-                    statusElement.innerText = `NUPIXEL INSTANCE STATUS // ONLINE: ${connectedClients} / ${maxClients} Citizens // ${localsFormatted} Locals in the City`;
-                } else {
-                    statusElement.innerText = defaultText;
-                }
-            } catch (err) {
-                console.error("Player polling failed:", err);
-                statusElement.innerText = defaultText;
-            }
-        }
-
-        // Initialize loops
-        updateFiveMPlayers();
-        setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
-    </script>
+    // Initialize loops
+    updateFiveMPlayers();
+    setInterval(updateFiveMPlayers, 30000); // Polling cycle every 30 seconds
+  </script>
 </body>
 </html>
